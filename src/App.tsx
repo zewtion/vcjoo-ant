@@ -1,3 +1,4 @@
+import { Button, InputNumber } from 'antd';
 import * as React from 'react';
 import './App.css';
 
@@ -11,9 +12,12 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <InputNumber min={1} max={10} defaultValue={3} />
+        <Button type="primary" htmlType="">Primary</Button>
+        <p className="App">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
+        
       </div>
     );
   }
