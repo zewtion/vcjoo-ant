@@ -16,6 +16,7 @@ class App extends React.Component {
         <Button type="primary" htmlType="">Primary</Button>
         <p className="App">
           To get started, edit <code>src/App.tsx</code> and save to reload.
+          component by reaCt !!
         </p>
         
       </div>
