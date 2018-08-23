@@ -33,6 +33,7 @@ class App extends React.Component<{},InterState> {
         <Button type="primary" htmlType="button" onClick={callExp(5)}>Primary</Button>
         <p className="App">
           To get started, edit <code>src/App.tsx</code> and save to reload.
+          component by reaCt !!
         </p>
         
       </div>
