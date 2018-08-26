@@ -1,4 +1,3 @@
-import { Button } from 'antd/lib/radio';
 import * as React from 'react'
 
 class LifeCycle extends React.Component{
@@ -8,7 +7,7 @@ class LifeCycle extends React.Component{
         return(
             <>
                 <div>
-                    <Button>Hello</Button>
+                    LifeCycle Pannel !!
                 </div>
             </>
         );
