@@ -22,7 +22,7 @@ class App extends React.Component<{},InterState> {
     /* tslint:disable:no-empty */
     if( flag === 1 ){
       this.setState({
-        step : <LifeCycle/>
+        step : <LifeCycle temp=""/>
       });
     }else if( flag === 2 ){
       this.setState({
