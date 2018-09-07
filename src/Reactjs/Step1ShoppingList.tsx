@@ -1,0 +1,36 @@
+import * as React from 'react'
+import Game from './Game';
+
+interface InterProps{
+  name:string
+}
+
+
+class ShoppingList extends React.Component<InterProps, {} > {
+
+  constructor(props:any){
+    super(props);
+
+  }
+
+  public componentDidMount(){
+    window.console.log('Hello');
+  }
+
+  public render() {
+    return (
+      <>
+        <div className="shopping-list">
+          <h1>Shopping List for {this.props.name} </h1>
+          <Game/>
+        </div>
+        <div>
+          <span id='space'> Hello </span>
+        </div>
+      </>
+    );
+  }
+}
+  
+ export default ShoppingList;
+
