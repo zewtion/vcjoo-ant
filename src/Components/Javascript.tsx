@@ -1,7 +1,5 @@
-/* tslint:disable */
-
 import { Button } from 'antd';
-import * as React from 'react'
+import * as React from 'react';
 
 interface InterStates{
     tempText:string
@@ -29,7 +27,7 @@ class Javascript extends React.Component<{}, InterStates>{
     public render(){
         return(
             <>
-                <Button onClick={ add2.bind(this) }>Hello</Button>
+                <Button onClick={ add2.bind }>Hello</Button>
                 <div>{this.state.tempText}</div>
             </>
         )
@@ -57,7 +55,7 @@ function fnScript1(i:number){
 
 // Javascript Array()
 function fnArray(){
-    /** 
+    /***
         concat 해당 배열에 지정한 항목들을 추가한 새로운 배열을 돌려줍니다
         pop 마지막 항목을 제거한 다음 돌려둡니다
         push 마지막에 하나 이상의 항목을 추가합니다 (ar[ar.length]와 같이)
@@ -67,13 +65,13 @@ function fnArray(){
         unshift 배열의 시작부분에 항목을 붙일 수 있습니다
         join 다수개의 배열을 합칠 수 있습니다
     */
-    var a = ["dog", "cat", "hen"];
+    const a = ["dog", "cat", "hen"];
     window.console.log( a[1] ); 
 }
 
 // Javascript Function()
 function add(){
-    /**
+    /***
      함수의 인자는 없을 수도, 많을 수도 있다
      java처럼 인자로 인한 오버로딩이 되지 않는다
 
@@ -81,8 +79,8 @@ function add(){
      ps) react에서 1번쨰 인자는 this 값이다
     */
 
-   var sum = 0;
-   for (var i = 0, j = arguments.length; i < j; i++) {
+   let sum = 0;
+   for (let i = 0, j = arguments.length; i < j; i++) {
        sum += arguments[i];
    }
    window.console.log( 'sum['+ sum +']' ); // add(this,1,2,3,4) === sum[10]

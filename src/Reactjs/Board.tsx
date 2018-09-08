@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import * as React from 'react';
 import Square from './Square'
 
@@ -5,27 +6,41 @@ import Square from './Square'
 interface InterStates{
     squares:any
 }
+
+const vDefault = 'O'; 
+const vClick = 'X';
+
 class Board extends React.Component<{},InterStates>{
 
     constructor(props:any){
         super(props);
         this.state={
-            squares: Array(9).fill('*')
+            squares: Array(9).fill(vDefault)
         }
     }
 
     public handleClick = (i:number) => {
         const squares2 = this.state.squares.slice();
-        squares2[i] = 'X';
+        if( squares2[i] === vClick ){
+          squares2[i] = vDefault;
+        }else{
+          squares2[i] = vClick;
+        }
         this.setState({squares: squares2});
       }
 
     public renderSquare = (i:number) => {
       return <Square value={this.state.squares[i]} onClick={ this.handleClick.bind(this,i) } />;
     }
+
+    public fnReload = () => {
+      this.setState({
+        squares: Array(9).fill(vDefault)
+      })
+    }
   
     public render(){
-      const status = 'Next Player: X';
+      const status = 'Next Player: ' + vClick;
       return(
         <div>
           <div className="status">{status}</div>
@@ -43,6 +58,10 @@ class Board extends React.Component<{},InterStates>{
             {this.renderSquare(6)}
             {this.renderSquare(7)}
             {this.renderSquare(8)}
+          </div>
+
+          <div><br/>
+            <Button type="Normal" size="small" htmlType="button" onClick={ this.fnReload }> Clear() </Button>
           </div>
         </div>
       );
