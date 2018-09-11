@@ -27,7 +27,7 @@ class Javascript extends React.Component<{}, InterStates>{
     public render(){
         return(
             <>
-                <Button onClick={ add2.bind }>Hello</Button>
+                <Button onClick={ add2 }>Hello</Button>
                 <div>{this.state.tempText}</div>
             </>
         )
