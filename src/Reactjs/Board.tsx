@@ -3,15 +3,19 @@ import * as React from 'react';
 import { isBoolean } from 'util';
 import Square from './Square'
 
-
+interface InterProps{
+  squares:any,
+  onClick:any,
+  xIsNest:boolean
+}
 interface InterStates{
-    squares:any
+    squares:any,
     xIsNest:boolean
 }
 
 const vDefault = null; 
 
-class Board extends React.Component<{},InterStates>{
+class Board extends React.Component<InterProps,InterStates>{
 
     constructor(props:any){
         super(props);
@@ -22,20 +26,14 @@ class Board extends React.Component<{},InterStates>{
 
     }
 
-    public handleClick = (i:number) => {
-        const squares2 = this.state.squares.slice();
-        if( squares2[i] || this.caculateWinner(squares2) ){
-          return;
-        }
-        squares2[i] = this.state.xIsNest ? "X" : "O";
-        this.setState({
-          squares: squares2,
-          xIsNest: !this.state.xIsNest
-        });
-      }
+    
 
     public renderSquare = (i:number) => {
-      return <Square value={this.state.squares[i]} onClick={ this.handleClick.bind(this,i) } />;
+      // return <Square value={this.state.squares[i]} onClick={ this.handleClick.bind(this,i) } />;
+      return <Square 
+                value={this.props.squares[i]} 
+                onClick={ this.props.onClick.bind(this,i) } 
+              />;
     }
 
     public fnReload = () => {
@@ -46,35 +44,13 @@ class Board extends React.Component<{},InterStates>{
     }
   
     // 틱택토- 승리규칙
-    public caculateWinner = (squares:any) => {
-      const lines:any = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
-      ];
-
-      for (const i of lines) {
-        const [a,b,c] = i;
-        if( squares[a] && squares[a] === squares[b] && squares[a] === squares[c] ){
-          return squares[a];
-        }
-      }
-      return null;
-    }
+    
 
     public render(){
-      let status;
-      const winner = this.caculateWinner(this.state.squares);
-      status = winner ? "Winner is " + winner : 'Next Player: ' + (this.state.xIsNest? "X" : "O");
 
       return(
         <div>
-          <div className="status">{status}</div>
+          <div className="status"></div>
           <div className="board-row">
             {this.renderSquare(0)}
             {this.renderSquare(1)}

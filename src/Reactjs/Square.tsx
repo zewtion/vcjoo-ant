@@ -13,9 +13,10 @@ class Square extends React.Component<{value:number, onClick:any},{}>{
   }
 
   public render(){
+      const space1 = <code>&nbsp;</code>;
       return(
-        <button onClick={ this.props.onClick }>
-          {this.props.value}
+        <button className="btnSquare" onClick={ this.props.onClick }>
+          { this.props.value ? this.props.value : space1 }
         </button>
       );
     }
