@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import * as React from 'react';
 import Board from './Board';
 
@@ -10,25 +11,23 @@ class Game extends React.Component<{},InterState>{
   constructor(props:any){
     super(props);
     this.state = {
-      history : [
-        {
+      history : [{
           squares : Array(9).fill(null)
-        }
-      ],
+      }],
       xIsNext : true,
     };
   }
 
   public handleClick = (i:number) => {
-    const history = this.state.history;
-    const current = history[history.length-1];
-    const squares2 = current.squares.slice();
-    if( squares2[i] || this.caculateWinner(squares2) ){
+    const historyTemp = this.state.history;
+    const currentTemp = historyTemp[historyTemp.length-1];
+    const squaresTemp = currentTemp.squares.slice();
+    if( squaresTemp[i] || this.caculateWinner(squaresTemp) ){
       return;
     }
-    squares2[i] = this.state.xIsNext ? "X" : "O";
+    squaresTemp[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
-      history: history.concat([{ squares: squares2 }]),
+      history: historyTemp.concat([{ squares: squaresTemp }]),
       xIsNext: !this.state.xIsNext
     });
   }
@@ -54,6 +53,18 @@ class Game extends React.Component<{},InterState>{
     return null;
   }
 
+  // 초기화 버튼
+  public fnReload = () => {
+    this.setState({
+      history : [
+        {
+          squares : Array(9).fill(null)
+        }
+      ],
+      xIsNext: true
+    })
+  }
+
     public render(){
       const history = this.state.history;
       const current = history[history.length-1];
@@ -69,12 +80,16 @@ class Game extends React.Component<{},InterState>{
           <div>
             <Board
               squares={current.squares}
-              onClick={this.handleClick.bind(this,i)}
+              onClick={this.handleClick}
+
             />
           </div>
           <div>
-            <div>{status}}</div>
+            <div>{status}</div>
             <ol>{/** Todo */}</ol>
+            <div><br/>
+              <Button type="Normal" size="small" htmlType="button" onClick={ this.fnReload }> Clear() </Button>
+            </div>
           </div>
         </div>
       );

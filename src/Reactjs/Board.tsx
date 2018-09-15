@@ -1,12 +1,10 @@
-import { Button } from 'antd';
 import * as React from 'react';
 import { isBoolean } from 'util';
 import Square from './Square'
 
 interface InterProps{
   squares:any,
-  onClick:any,
-  xIsNest:boolean
+  onClick:any
 }
 interface InterStates{
     squares:any,
@@ -26,8 +24,6 @@ class Board extends React.Component<InterProps,InterStates>{
 
     }
 
-    
-
     public renderSquare = (i:number) => {
       // return <Square value={this.state.squares[i]} onClick={ this.handleClick.bind(this,i) } />;
       return <Square 
@@ -36,21 +32,10 @@ class Board extends React.Component<InterProps,InterStates>{
               />;
     }
 
-    public fnReload = () => {
-      this.setState({
-        squares: Array(9).fill(vDefault),
-        xIsNest: true
-      })
-    }
-  
-    // 틱택토- 승리규칙
-    
-
     public render(){
 
       return(
         <div>
-          <div className="status"></div>
           <div className="board-row">
             {this.renderSquare(0)}
             {this.renderSquare(1)}
@@ -65,10 +50,6 @@ class Board extends React.Component<InterProps,InterStates>{
             {this.renderSquare(6)}
             {this.renderSquare(7)}
             {this.renderSquare(8)}
-          </div>
-
-          <div><br/>
-            <Button type="Normal" size="small" htmlType="button" onClick={ this.fnReload }> Clear() </Button>
           </div>
         </div>
       );
