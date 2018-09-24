@@ -1,8 +1,8 @@
 import { Button } from 'antd';
 import * as React from 'react';
 import './App.css';
-import Javascript from './Components/Javascript';
 import LifeCycle from './Components/LifeCycle';
+import Javascript6 from './Javascript6/Poiemaweb';
 import Step1ShoppingList from './Reactjs/Step1ShoppingList';
 
 interface InterState{ 
@@ -28,7 +28,7 @@ class App extends React.Component<{},InterState> {
       });
     }else if( flag === 2 ){
       this.setState({
-        step : <Javascript />
+        step : <Javascript6 />
       });
     }else if( flag === 3 ){
       this.setState({

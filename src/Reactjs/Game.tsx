@@ -20,10 +20,12 @@ class Game extends React.Component<{},InterState>{
     };
   }
 
+  // TTT 버튼 클릭 이벤트
   public handleClick = (i:number) => {
     const historyTemp = this.state.history.slice(0, this.state.stepNumber + 1);
     const currentTemp = historyTemp[historyTemp.length-1];
     const squaresTemp = currentTemp.squares.slice();
+
     if( squaresTemp[i] || this.caculateWinner(squaresTemp) ){
       return;
     }
@@ -35,6 +37,7 @@ class Game extends React.Component<{},InterState>{
     });
   }
 
+  // 게임종료 규칙
   public caculateWinner = (squares:any) => {
     const lines:any = [
       [0,1,2],
@@ -59,12 +62,11 @@ class Game extends React.Component<{},InterState>{
   // 초기화 버튼
   public fnReload = () => {
     this.setState({
-      history : [
-        {
+      history : [{
           squares : Array(9).fill(null)
-        }
-      ],
-      xIsNext: true
+      }],
+      stepNumber : 0,
+      xIsNext : true
     })
   }
 
@@ -85,9 +87,9 @@ class Game extends React.Component<{},InterState>{
         (step:number, move:string) => {
           const desc = move ? 'Go to move #' + move : 'Go to game start';
           return(
-            <li key={move}>
+            <p key={move}>
               <button onClick={this.jumpTo.bind(this, move)}> {desc} </button>
-            </li>
+            </p>
           );
         }
       );
@@ -102,8 +104,8 @@ class Game extends React.Component<{},InterState>{
             />
           </div>
           <div>
-            <div>{status}</div>
-            <ol>{moves}</ol>
+            <div>{status}</div><br/><br/>
+            <code>{moves}</code>
             <div><br/>
               <Button type="Normal" size="small" htmlType="button" onClick={ this.fnReload }> Clear() </Button>
             </div>

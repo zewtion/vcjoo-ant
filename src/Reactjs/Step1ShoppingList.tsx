@@ -21,11 +21,8 @@ class ShoppingList extends React.Component<InterProps, {} > {
     return (
       <>
         <div className="shopping-list">
-          <h1>Shopping List for {this.props.name} </h1>
+          <h1>Reactjs {this.props.name} </h1>
           <Game/>
-        </div>
-        <div>
-          <span id='space'> Hello </span>
         </div>
       </>
     );
