@@ -4,6 +4,7 @@ import './App.css';
 import LifeCycle from './Components/LifeCycle';
 import Javascript6 from './Javascript6/Poiemaweb';
 import Step1ShoppingList from './Reactjs/Step1ShoppingList';
+import Contact from './Velopert/Contact';
 
 interface InterState{ 
   num:number,
@@ -34,6 +35,10 @@ class App extends React.Component<{},InterState> {
       this.setState({
         step : <Step1ShoppingList name="HelloAyan"/>
       });
+    }else if( flag === 4 ){
+      this.setState({
+        step : <Contact/>
+      });
     }
   }
 
@@ -45,6 +50,7 @@ class App extends React.Component<{},InterState> {
           <Button type="Normal" size="small" htmlType="button" onClick={ this.showComponents.bind(this,1) }>LifeCycle</Button>
           <Button type="Normal" size="small" htmlType="button" onClick={ this.showComponents.bind(this,2) }>Javascript</Button>
           <Button type="Normal" size="small" htmlType="button" onClick={ this.showComponents.bind(this,3) }>Reactjs</Button>
+          <Button type="Normal" size="small" htmlType="button" onClick={ this.showComponents.bind(this,4) }>Velopert</Button>
         </div>
         <p className="S3Line"/>
         <div style={{textAlign:'center'}}>
