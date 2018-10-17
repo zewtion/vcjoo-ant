@@ -67,3 +67,13 @@ class Poiemaweb extends React.Component<{}, InterStates>{
 }
 
 export default Poiemaweb;
+
+/**
+ * Promiss + async/await 동기식 구현, 콜백함수 대체하는 모범사례
+ */
+async function findAndSaveUser(Users:any){
+    let user = await Users.fincOne({});
+    user.name = 'zero';
+    user = await user.save();
+    user = await Users.findOne({gender: 'm'});
+}

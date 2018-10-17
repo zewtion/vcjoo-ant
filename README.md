@@ -5,6 +5,13 @@
 
 done !
 
+- [이 프로젝트는 type-script + react-create-app 으로 만들어졌습니다]
+- [ES2015 설명] https://developer.mozilla.org/ko/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla
+
+
+---------------- 하위 내용은 type-script에서 시작가이드로 제공 됨 --------------
+
+
 
 <<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
