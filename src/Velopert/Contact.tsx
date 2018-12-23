@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Header from './Header';
+
 
 interface InterStates{
     keyword:string
@@ -29,10 +31,12 @@ class Contact extends React.Component<{}, InterStates>{
                     <h1>Contacts</h1>
                     <input
                         name="keyword"
-                        placeholder="Search for the name"
+                        placeholder="Search for the name!!"
                         value={this.state.keyword}
                         onChange={this.handleChange}
                     />
+
+                    <Header/>
                 </div>
             </>
         );

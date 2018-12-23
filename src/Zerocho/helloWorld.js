@@ -1,10 +1,13 @@
 function helloWorld(){
-    console.log('Hello world');
+    window.console.log('Hello world');
     helloNode();
 }
 
 function helloNode(){
-    console.log('Hello node');
+    window.console.log('Hello node');
 }
 
 helloWorld();
+
+window.console.log( __filename );
+window.console.log( __dirname );

@@ -1,5 +1,8 @@
+const os = require('os');
 const { odd, even } = require('./var');
 const checkNumber = require('./func');
+
+
 
 function checkString0dd0rEven(str){
     if( str.length % 2 ){
@@ -9,6 +12,13 @@ function checkString0dd0rEven(str){
     }
 }
 
+function printId(){
+    process.env.uid = 'vcjoo_under';
+    const uid = process.env.uid;
+    return uid;
+}
 
-console.log( checkNumber(10) );
-console.log( checkString0dd0rEven('hello') );
+
+window.console.log( checkNumber(10) );
+window.console.log( 'print_id ', printId() );
+window.console.log( __filename );
